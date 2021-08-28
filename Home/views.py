@@ -1,7 +1,13 @@
 from django.shortcuts import render
-from .models import Products
 
-# Create your views here.
-def HomePage(request):
-    product = Products.objects.all()
-    return render(request, 'Home/base.html', {'product': product})
+def home(request):
+    context = {}
+    return render(request, 'Home/home.html', context)
+
+def cart(request):
+    context = {}
+    return render(request, 'Home/cart.html', context)
+
+def checkout(request):
+    context = {}
+    return render(request, 'Home/checkout.html', context)
