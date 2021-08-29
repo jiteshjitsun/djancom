@@ -1,9 +1,41 @@
-{% extends 'Home/main.html' %}
-{% load static %}
-
-
+{% extends 'Home/main.html' %} 
+{% load static %} 
 {% block content %}
-<h2>This is Home page</h2>
 
-<img src="{% static 'images/carts.png' %}" alt="">
-{% endblock %}
+<div class="row">
+  <div class="col-lg-4">
+      <img  class="thumbnail" src="{% static 'images/logo.png' %}" alt="">
+    <div class="box-element products">
+        <strong>Products</strong>
+        <hr>
+        <button class="btn btn-info">Add to cart</button>
+        <a href="#" class="btn btn-primary">View</a>
+        <h4 style="display:inline-block; float: right;">Rs. 289</h4>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <img class="thumbnail" src="{% static 'images/logo.png' %}" alt="">
+
+    <div class="box-element products">
+
+        <strong>Products</strong>
+        <hr>
+        <button class="btn btn-info">Add to cart</button>
+        <a href="#" class="btn btn-primary">View</a>
+        <h4 style="display:inline-block; float: right;">Rs. 289</h4>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <img  class="thumbnail"src="{% static 'images/logo.png' %}" alt="">
+
+    <div class="box-element products">
+        <strong>Products</strong>
+        <hr>
+        <button class="btn btn-info">Add to cart</button>
+        <a href="#" class="btn btn-primary">View</a>
+        <h4 style="display:inline-block; float: right;">Rs. 289</h4>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
