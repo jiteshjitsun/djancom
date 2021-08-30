@@ -1,41 +1,61 @@
 {% extends 'Home/main.html' %} 
 {% load static %} 
 {% block content %}
-
-<div class="row">
-  <div class="col-lg-4">
-      <img  class="thumbnail" src="{% static 'images/logo.png' %}" alt="">
-    <div class="box-element products">
-        <strong>Products</strong>
-        <hr>
-        <button class="btn btn-info">Add to cart</button>
-        <a href="#" class="btn btn-primary">View</a>
-        <h4 style="display:inline-block; float: right;">Rs. 289</h4>
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+  <hr>
+  <div class="container box-element">
+    <div class="row">
+      <div class="col col-5">
+        <a href="{% url 'home' %}"> 
+        <button class="btn btn-outline-warning">
+            Go back to shopping 
+        </button>
+      </a>
+        <p class="mt-2"><strong>Total Items : 0</strong></p>
+      </div>
+      <div class="col col-4">
+        <p class="mt-5"><strong>Total Cost: Rs 0</strong></p>
+      </div>
+      <div class="col col-3">
+        <a href="{% url 'checkout' %}">
+        <button class="btn btn-secondary mt-4">
+          Checkout
+        </button>
+      </a>
+      </div>
     </div>
   </div>
-  <div class="col-lg-4">
-    <img class="thumbnail" src="{% static 'images/logo.png' %}" alt="">
-
-    <div class="box-element products">
-
-        <strong>Products</strong>
-        <hr>
-        <button class="btn btn-info">Add to cart</button>
-        <a href="#" class="btn btn-primary">View</a>
-        <h4 style="display:inline-block; float: right;">Rs. 289</h4>
+  <br>
+  <!-- another container for showing products  -->
+  <div class="container box-element">
+    <!-- static row -->
+    <div class="row">
+      <div class="col col-3"><h2>Items</h2> </div>
+      <div class="col col-3"><h2>Price</h2> </div>
+      <div class="col col-3"><h2>Quantity</h2> </div>
+      <div class="col col-3"><h2>Total</h2> </div>
     </div>
+    <!-- static row ends -->
+    <hr>
+    <!-- for statements starts from here -->
+      <div class="row">
+        <div class="col col-3"> 
+          <img src="{% static 'images/logo.png' %}" alt="">
+        </div>
+        <div class="col col-3">
+          <strong>Rs.233</strong>
+        </div>
+        <div class="col col-3">
+          <div class="quantity">
+            <img data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}">
+        
+            <img data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
+          </div>
+        </div>
+        <div class="col col-3">
+          <strong>400</strong>
+        </div>
+      </div>
+      <!-- for statement ends here -->
   </div>
-  <div class="col-lg-4">
-    <img  class="thumbnail"src="{% static 'images/logo.png' %}" alt="">
-
-    <div class="box-element products">
-        <strong>Products</strong>
-        <hr>
-        <button class="btn btn-info">Add to cart</button>
-        <a href="#" class="btn btn-primary">View</a>
-        <h4 style="display:inline-block; float: right;">Rs. 289</h4>
-    </div>
-  </div>
-</div>
-
 {% endblock content %}
