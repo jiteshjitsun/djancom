@@ -4,4 +4,60 @@
 
 {% block content %}
 <h2>Checkout</h2>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="box-element" id="form-wrapper">
+            <form action="" id="form">
+                <div class="user-info">
+                    <div class="form-field">
+                        <input type="text" name="name" placeholder="name" class="form-control">
+                    </div>
+                    <div class="form-field">
+                        <input type="text" name="email" placeholder="email" class="form-control">
+                    </div>
+                </div>
+
+                <div class="shipping-info">
+                    <hr>
+                        <p>Shipping Information</p>
+                        <hr>
+                        <div class="form-field">
+                            <input type="text" name="address" placeholder="address" class="form-control">
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="State" placeholder="State" class="form-control">
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="city" placeholder="city" class="form-control">
+                        </div>
+                        <div class="form-field">
+                            <input type="text" name="pin-code" placeholder="pin-code" class="form-control">
+                        </div>
+                </div>
+                <hr>
+                <input id="form-button" type="submit" value="continue" class="btn btn-success btn-block">
+            </form>
+        </div>
+        <br>
+        <div class="box-element hidden" id="payment-info">
+            <small>PayPal</small>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="box-element">
+            <a href="{% url 'cart' %}" class="btn btn-outline-dark">&#x2190; back to cart</a>
+            <hr>
+            <h2>Order Summary</h2>
+            <hr>
+            <div class="cart-row">
+                <div style="flex:2"> <img src="{% static 'images/logo.png' %}" alt="" class="row-img"></div>
+                <div style="flex:2"> <p>Product 1</p></div>
+                <div style="flex:1"> <p>Rs.345</p></div>
+                <div style="flex:1"> <p>x4</p></div>
+            </div>
+            <h5>Total Items: 4</h5>
+            <h5>Toal amt. : 1380</h5>
+        </div>
+    </div>
+</div>
 {% endblock %}
