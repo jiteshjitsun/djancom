@@ -1,23 +1,52 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.deletion import CASCADE
 
-# Create your models here.
-class Products(models.Model):
-    name = models.CharField(max_length=35)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(upload_to = 'media/products_images/')
 
-    @staticmethod
-    def get_products_by_id(ids):
-        return Products.objects.filter(id__in=ids)
-  
-    @staticmethod
-    def get_all_products():
-        return Products.objects.all()
-  
-    @staticmethod
-    def get_all_products_by_categoryid(category_id):
-        if category_id:
-            return Products.objects.filter(category=category_id)
-        else:
-            return Products.get_all_products()
+# customer model 
+class Customer(models.Model):
+    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
+    name = models.CharField(max_length=20, null=True)
+    email = models.EmailField(max_length=130)
+
+    def __str__(self):
+        return self.name
+
+# product model
+class Product(models.Model):
+    name = models.CharField(max_length=200)
+    price = models.FloatField()
+    digital = models.BooleanField(default=False, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+# orders model 
+class Order(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+    date_ordered = models.DateTimeField(auto_now_add=True)
+    complete = models.BooleanField(default=False)
+    transaction_id = models.CharField(max_length=20, null=True)
+
+    def __str__(self):
+        return str(self.id)
+
+# orders items
+class OrderItems(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    quantity = models.IntegerField(default=0, null=True, blank=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+# shipping model
+class ShippingAddress(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    address = models.CharField(max_length=180, null=False)
+    city = models.CharField(max_length=20, null=False)
+    state = models.CharField(max_length=20, null=True)
+    zipcode = models.CharField(max_length=200, null=False)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.address
