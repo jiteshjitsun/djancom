@@ -123,3 +123,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+# here the uploaded images will be saved
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+# media url
+MEDIA_URL = '/images/'
