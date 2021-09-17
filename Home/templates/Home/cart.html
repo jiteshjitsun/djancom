@@ -11,10 +11,10 @@
             Go back to shopping 
         </button>
       </a>
-        <p class="mt-2"><strong>Total Items : 0</strong></p>
+        <p class="mt-2"><strong>Total Items : Rs {{order.get_total}}</strong></p>
       </div>
       <div class="col col-4">
-        <p class="mt-5"><strong>Total Cost: Rs 0</strong></p>
+        <p class="mt-5"><strong>Total Cost: Rs {{order.get_cart_items}}</strong></p>
       </div>
       <div class="col col-3">
         <a href="{% url 'checkout' %}">
@@ -38,24 +38,28 @@
     <!-- static row ends -->
     <hr>
     <!-- for statements starts from here -->
+    {% for item in items %}
       <div class="row">
         <div class="col col-3"> 
-          <img src="{% static 'images/logo.png' %}" alt="">
+          <img src="{{item.product.imgURL}}" style="max-width: 100px;" alt="">
         </div>
         <div class="col col-3">
-          <strong>Rs.233</strong>
+          <strong>Rs.{{item.product.price|floatformat:2}}</strong>
         </div>
         <div class="col col-3">
           <div class="quantity">
-            <img data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}">
-        
+           <img data-action="add" class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}">
+           {{item.quantity}}
             <img data-action="remove" class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}">
-          </div>
+      </div> 
         </div>
         <div class="col col-3">
-          <strong>400</strong>
+          <strong>Rs. {{item.get_total}}</strong>
         </div>
       </div>
+      <hr>
+      {% endfor %}
       <!-- for statement ends here -->
+
   </div>
 {% endblock content %}
