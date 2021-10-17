@@ -31,3 +31,6 @@ def checkout(request):
 
 def updateItem(request):
     return JsonResponse('Item was added', safe= False)
+
+def contactUs(request):
+    return render(request, 'Home/contact.html')

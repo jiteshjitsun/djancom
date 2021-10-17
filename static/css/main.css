@@ -11,7 +11,7 @@ h1,h2,h3,h4,h5,h6{
 	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
 	background-color: #fff;
 	border-radius: 4px;
-	padding: 10px;
+	padding: 16px;
 }
 
 .thumbnail{
@@ -27,7 +27,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .bg-dark{
-	background-color: #4f868c!important;
+	background-color: #012a4a!important;
 }
 
 #cart-icon{
@@ -48,7 +48,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
-	margin-top: 10px;
+	margin-top: 16px;
 }
 
 .btn{
@@ -99,4 +99,55 @@ h1,h2,h3,h4,h5,h6{
 	display: none!important;
 }
 
-    
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+	background: #012a4a;
+	color: #89c2d9;
+	font-size: 14px;
+	text-align: center;
+	padding: 30px 0;
+  }
+  #footer h3 {
+	font-size: 36px;
+	font-weight: 700;
+	position: relative;
+	font-family: "Poppins", sans-serif;
+	padding: 0;
+	margin: 0 0 15px 0;
+  }
+  #footer p {
+	font-size: 15;
+	font-style: italic;
+	padding: 0;
+	margin: 0 0 40px 0;
+  }
+  #footer .social-links {
+	margin: 0 0 40px 0;
+  }
+  #footer .social-links a {
+	font-size: 18px;
+	display: inline-block;
+	background: #0563bb;
+	color: #fff;
+	line-height: 1;
+	padding: 8px 0;
+	margin-right: 4px;
+	border-radius: 50%;
+	text-align: center;
+	width: 36px;
+	height: 36px;
+	transition: 0.3s;
+  }
+  #footer .social-links a:hover {
+	background: #0678e3;
+	color: #fff;
+	text-decoration: none;
+  }
+  #footer .copyright {
+	margin: 0 0 5px 0;
+  }
+  #footer .credits {
+	font-size: 13px;
+  }
